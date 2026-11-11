@@ -1,0 +1,24 @@
+{
+  "environment": "web",
+  "format": "html",
+  "id": "secure-agent-obo",
+  "title": "Secure AI Agents on Google Cloud: Acting On Behalf Of Your Users",
+  "summary": "Deploy a secure, rate-limited, budgeted AI agent on Google Cloud that acts on behalf of the signed-in user",
+  "source": "hands-on-workshop.md",
+  "status": [
+    "published"
+  ],
+  "tags": [
+    "codelabs",
+    "google cloud",
+    "ai agents",
+    "adk",
+    "gemini",
+    "security",
+    "oauth"
+  ],
+  "authors": "Prasiddha Bista",
+  "duration": 78,
+  "updated": "2026-11-11T00:52:18+00:00",
+  "url": "secure-agent-obo"
+}
