@@ -96,19 +96,34 @@ The authorisation server enforces three rules before it issues it:
 ![OBO sequence](images/obo-sequence.png)
 
 
-## Open Cloud Shell and get the code
+## Open the code in Cloud Shell
 Duration: 0:03:00
 
-1. Open the [Google Cloud console](https://console.cloud.google.com/) and select (or create) your
-   project. Make sure billing is linked.
-2. Click **Activate Cloud Shell** (the `>_` icon, top right).
-3. Point gcloud at your project and clone the repo:
+You don't need to install anything: Cloud Shell already has `gcloud`, `bq`, `docker` and `git`, and the
+deploy uses gcloud only (no Terraform).
+
+Click the button. Cloud Shell opens with the repo cloned and a tutorial panel on the right.
+
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://shell.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fboltdynamics%2Fsecure-agent-obo&cloudshell_git_branch=main&cloudshell_tutorial=docs%2Fcloudshell-tutorial.md&show=ide%2Cterminal)
+
+1. If asked, confirm you want to open the repo in Cloud Shell.
+2. Because the repo isn't owned by Google, Cloud Shell opens a **temporary session without your
+   credentials**. Sign in from the terminal:
+
+```bash
+gcloud auth login --update-adc
+```
+
+   Open the link, sign in with the account that owns your project, and paste the code back.
+3. Point gcloud at your project:
 
 ```bash
 gcloud config set project YOUR_PROJECT_ID
-git clone https://github.com/boltdynamics/secure-agent-obo.git
-cd secure-agent-obo
 ```
+
+> **Note:** prefer your normal Cloud Shell (it keeps your files and is already signed in)? Open Cloud
+> Shell from the console with the `>_` icon and run
+> `git clone https://github.com/boltdynamics/secure-agent-obo.git && cd secure-agent-obo` instead.
 
 Take a quick look at the layout:
 
@@ -118,19 +133,38 @@ app/bank_api      the bank: checks sub, scope and ownership on every call
 app/agent         ADK agent, tools, credential broker, guardrails
 app/web           the web app with a live "security inspector"
 deploy.sh         one command to deploy everything
+AGENTS.md         instructions for coding agents such as Antigravity
 ```
 
 
-## Deploy with one command
+## Deploy with Antigravity (or one command)
 Duration: 0:10:00
 
-Run:
+### Option A: let Antigravity do it
 
-```bash
-./deploy.sh
+1. In the Cloud Shell Editor's left-hand bar, click the **Antigravity** icon.
+2. The first time, choose a billing model (your Gemini subscription, or **Pay As You Go** billed to a
+   Google Cloud project) and select your project.
+3. Ask it:
+
+```
+Read AGENTS.md, then deploy this app to my Google Cloud project YOUR_PROJECT_ID.
+Explain each step before you run it.
 ```
 
-This takes about 6 to 8 minutes. While it runs, here is what it is doing:
+`AGENTS.md` tells the agent exactly how to deploy: check you're signed in, confirm the project, run
+`./deploy.sh`, and never run `./destroy.sh` unless you ask. Read each command before you approve it.
+
+> **Note:** Antigravity's own model usage is billed separately from the workshop app. On Pay As You Go
+> it is charged to the project you selected.
+
+### Option B: run it yourself
+
+```bash
+./deploy.sh YOUR_PROJECT_ID
+```
+
+Either way, the deploy takes about 6 to 8 minutes. While it runs, here is what it is doing:
 
 | Step | Why |
 |---|---|

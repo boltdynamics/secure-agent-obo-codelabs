@@ -114,31 +114,54 @@ the customer's token to the authorisation server and gets back a new one:</p>
 <p><img alt="OBO sequence" src="images/obo-sequence.png" /></p>
       </google-codelab-step>
 
-      <google-codelab-step label="Open Cloud Shell and get the code" duration="3">
+      <google-codelab-step label="Open the code in Cloud Shell" duration="3">
+<p>You don't need to install anything: Cloud Shell already has <code>gcloud</code>, <code>bq</code>, <code>docker</code> and <code>git</code>, and the
+deploy uses gcloud only (no Terraform).</p>
+<p>Click the button. Cloud Shell opens with the repo cloned and a tutorial panel on the right.</p>
+<p><a href="https://shell.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fboltdynamics%2Fsecure-agent-obo&amp;cloudshell_git_branch=main&amp;cloudshell_tutorial=docs%2Fcloudshell-tutorial.md&amp;show=ide%2Cterminal"><img alt="Open in Cloud Shell" src="https://gstatic.com/cloudssh/images/open-btn.svg" /></a></p>
 <ol>
-<li>Open the <a href="https://console.cloud.google.com/">Google Cloud console</a> and select (or create) your
-   project. Make sure billing is linked.</li>
-<li>Click <strong>Activate Cloud Shell</strong> (the <code>&gt;_</code> icon, top right).</li>
-<li>Point gcloud at your project and clone the repo:</li>
+<li>If asked, confirm you want to open the repo in Cloud Shell.</li>
+<li>Because the repo isn't owned by Google, Cloud Shell opens a <strong>temporary session without your
+   credentials</strong>. Sign in from the terminal:</li>
 </ol>
-<pre><code class="language-bash" translate="no">gcloud config set project YOUR_PROJECT_ID
-git clone https://github.com/boltdynamics/secure-agent-obo.git
-cd secure-agent-obo
+<pre><code class="language-bash" translate="no">gcloud auth login --update-adc
 </code></pre>
+<p>Open the link, sign in with the account that owns your project, and paste the code back.
+3. Point gcloud at your project:</p>
+<pre><code class="language-bash" translate="no">gcloud config set project YOUR_PROJECT_ID
+</code></pre>
+<aside class="special"><p><strong>Note:</strong> prefer your normal Cloud Shell (it keeps your files and is already signed in)? Open Cloud
+Shell from the console with the <code>&gt;_</code> icon and run
+<code>git clone https://github.com/boltdynamics/secure-agent-obo.git &amp;&amp; cd secure-agent-obo</code> instead.</p></aside>
 <p>Take a quick look at the layout:</p>
 <pre><code>app/auth_server   OAuth server: login + PKCE, token exchange, client credentials
 app/bank_api      the bank: checks sub, scope and ownership on every call
 app/agent         ADK agent, tools, credential broker, guardrails
 app/web           the web app with a live &quot;security inspector&quot;
 deploy.sh         one command to deploy everything
+AGENTS.md         instructions for coding agents such as Antigravity
 </code></pre>
       </google-codelab-step>
 
-      <google-codelab-step label="Deploy with one command" duration="10">
-<p>Run:</p>
-<pre><code class="language-bash" translate="no">./deploy.sh
+      <google-codelab-step label="Deploy with Antigravity (or one command)" duration="10">
+<h2 is-upgraded>Option A: let Antigravity do it</h2>
+<ol>
+<li>In the Cloud Shell Editor's left-hand bar, click the <strong>Antigravity</strong> icon.</li>
+<li>The first time, choose a billing model (your Gemini subscription, or <strong>Pay As You Go</strong> billed to a
+   Google Cloud project) and select your project.</li>
+<li>Ask it:</li>
+</ol>
+<pre><code>Read AGENTS.md, then deploy this app to my Google Cloud project YOUR_PROJECT_ID.
+Explain each step before you run it.
 </code></pre>
-<p>This takes about 6 to 8 minutes. While it runs, here is what it is doing:</p>
+<p><code>AGENTS.md</code> tells the agent exactly how to deploy: check you're signed in, confirm the project, run
+<code>./deploy.sh</code>, and never run <code>./destroy.sh</code> unless you ask. Read each command before you approve it.</p>
+<aside class="special"><p><strong>Note:</strong> Antigravity's own model usage is billed separately from the workshop app. On Pay As You Go
+it is charged to the project you selected.</p></aside>
+<h2 is-upgraded>Option B: run it yourself</h2>
+<pre><code class="language-bash" translate="no">./deploy.sh YOUR_PROJECT_ID
+</code></pre>
+<p>Either way, the deploy takes about 6 to 8 minutes. While it runs, here is what it is doing:</p>
 <table>
 <thead>
 <tr>
