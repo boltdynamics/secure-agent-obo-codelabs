@@ -167,10 +167,18 @@ Duration: 0:10:00
 
 ### Option A: let Antigravity do it
 
-1. In the Cloud Shell Editor's left-hand bar, click the **Antigravity** icon.
+1. Open Antigravity. In the Cloud Shell Editor's left-hand bar, click the **Antigravity** icon (the
+   "A"). If the bar is too short to show it, click **...** (More views) and choose **Antigravity**.
+
+![Open Antigravity from the More views menu](images/antigravity-open.png)
+
 2. The first time, choose a billing model (your Gemini subscription, or **Pay As You Go** billed to a
    Google Cloud project) and select your project.
-3. Ask it:
+3. In the model picker under the chat box, choose **Gemini 3.1 Flash Lite**. It's the lowest-cost Gemini
+   model, and running a deploy script doesn't need anything bigger.
+4. Paste this into the chat box, replacing `YOUR_PROJECT_ID`, and send it:
+
+![Antigravity panel: paste the prompt, then pick Gemini 3.1 Flash Lite](images/antigravity-model.png)
 
 ```
 Read AGENTS.md, then deploy this app to my Google Cloud project YOUR_PROJECT_ID.

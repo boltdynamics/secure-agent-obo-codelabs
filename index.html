@@ -168,11 +168,18 @@ AGENTS.md         instructions for coding agents such as Antigravity
       <google-codelab-step label="Deploy with Antigravity (or one command)" duration="10">
 <h2 is-upgraded>Option A: let Antigravity do it</h2>
 <ol>
-<li>In the Cloud Shell Editor's left-hand bar, click the <strong>Antigravity</strong> icon.</li>
+<li>Open Antigravity. In the Cloud Shell Editor's left-hand bar, click the <strong>Antigravity</strong> icon (the
+   "A"). If the bar is too short to show it, click <strong>...</strong> (More views) and choose <strong>Antigravity</strong>.</li>
+</ol>
+<p><img alt="Open Antigravity from the More views menu" src="images/antigravity-open.png" /></p>
+<ol>
 <li>The first time, choose a billing model (your Gemini subscription, or <strong>Pay As You Go</strong> billed to a
    Google Cloud project) and select your project.</li>
-<li>Ask it:</li>
+<li>In the model picker under the chat box, choose <strong>Gemini 3.1 Flash Lite</strong>. It's the lowest-cost Gemini
+   model, and running a deploy script doesn't need anything bigger.</li>
+<li>Paste this into the chat box, replacing <code>YOUR_PROJECT_ID</code>, and send it:</li>
 </ol>
+<p><img alt="Antigravity panel: paste the prompt, then pick Gemini 3.1 Flash Lite" src="images/antigravity-model.png" /></p>
 <pre><code>Read AGENTS.md, then deploy this app to my Google Cloud project YOUR_PROJECT_ID.
 Explain each step before you run it.
 </code></pre>
