@@ -4,7 +4,8 @@ Hands-on workshop for **Numbat Bank**: deploy a secure, scalable, cost-controlle
 governable AI agent on Google Cloud that calls an API **on behalf of** the signed-in user (OAuth 2.0
 Token Exchange, RFC 8693), then compare it with an agent that holds a shared admin credential.
 
-Written in Google Codelabs format and hosted on GitHub Pages. The code lives in
+Written in Google Codelabs format and hosted on GitHub Pages at
+**https://boltdynamics.github.io/secure-agent-obo-codelabs/**. The code lives in
 [boltdynamics/secure-agent-obo](https://github.com/boltdynamics/secure-agent-obo).
 
 ## What attendees do
