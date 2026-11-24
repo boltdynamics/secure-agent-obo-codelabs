@@ -149,10 +149,13 @@ the terminal with <code>gcloud auth login --update-adc</code>. <code>deploy.sh</
 </ol>
 <pre><code class="language-bash" translate="no">gcloud config set project YOUR_PROJECT_ID
 </code></pre>
+<p>You should see <code>Updated property [core/project].</code>, and the terminal prompt now ends with your project
+   ID in yellow. The code is in the <strong>Explorer</strong> on the left: the <code>app</code> folder holds the four services.</p>
+<p><img alt="Project set in Cloud Shell, with the app folder highlighted in the Explorer" src="images/cloudshell-project-set.png" /></p>
 <aside class="special"><p><strong>Note:</strong> prefer your normal Cloud Shell (it keeps your files and is already signed in)? Open Cloud
 Shell from the console with the <code>&gt;_</code> icon and run
 <code>git clone https://github.com/boltdynamics/secure-agent-obo.git &amp;&amp; cd secure-agent-obo</code> instead.</p></aside>
-<p>Take a quick look at the layout:</p>
+<p>Take a quick look at the layout (open <code>app</code> in the Explorer to browse it):</p>
 <pre><code>app/auth_server   OAuth server: login + PKCE, token exchange, client credentials
 app/bank_api      the bank: checks sub, scope and ownership on every call
 app/agent         ADK agent, tools, credential broker, guardrails

@@ -141,11 +141,16 @@ that folder, and a **Deploy Numbat Bank** tutorial panel on the right.
 gcloud config set project YOUR_PROJECT_ID
 ```
 
+   You should see `Updated property [core/project].`, and the terminal prompt now ends with your project
+   ID in yellow. The code is in the **Explorer** on the left: the `app` folder holds the four services.
+
+![Project set in Cloud Shell, with the app folder highlighted in the Explorer](images/cloudshell-project-set.png)
+
 > **Note:** prefer your normal Cloud Shell (it keeps your files and is already signed in)? Open Cloud
 > Shell from the console with the `>_` icon and run
 > `git clone https://github.com/boltdynamics/secure-agent-obo.git && cd secure-agent-obo` instead.
 
-Take a quick look at the layout:
+Take a quick look at the layout (open `app` in the Explorer to browse it):
 
 ```
 app/auth_server   OAuth server: login + PKCE, token exchange, client credentials
