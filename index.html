@@ -130,10 +130,22 @@ deploy uses gcloud only (no Terraform).</p>
    Antigravity) call Google Cloud APIs as you.</li>
 </ol>
 <p><img alt="Authorize Cloud Shell" src="images/cloudshell-authorize.png" /></p>
+<p>Cloud Shell opens with the repo cloned into <code>~/cloudshell_open/secure-agent-obo</code>, the terminal already in
+that folder, and a <strong>Deploy Numbat Bank</strong> tutorial panel on the right.</p>
+<p><img alt="Cloud Shell after Authorize: repo cloned, terminal open, tutorial panel on the right" src="images/cloudshell-ready.png" /></p>
 <aside class="special"><p><strong>Note:</strong> if you didn't tick <strong>Trust repo</strong>, or <code>gcloud auth list</code> shows no active account, sign in from
 the terminal with <code>gcloud auth login --update-adc</code>. <code>deploy.sh</code> also offers to do this for you.</p></aside>
 <ol>
-<li>Point gcloud at your project:</li>
+<li>Find your <strong>project ID</strong>. Open the <a href="https://console.cloud.google.com/">Google Cloud console</a> in a new
+   tab, check the project picker at the top shows the project you want to use, and copy the
+   <strong>Project ID</strong> from the Welcome page. It's the ID (like <code>my-project-123456</code>), not the project name or
+   number.</li>
+</ol>
+<p><img alt="Google Cloud console Welcome page with the Project ID highlighted" src="images/console-project-id.png" /></p>
+<p>Prefer the terminal? <code>gcloud projects list</code> shows every project you can use, with its ID in the first
+   column.</p>
+<ol>
+<li>Point gcloud at your project, replacing <code>YOUR_PROJECT_ID</code> with the ID you copied:</li>
 </ol>
 <pre><code class="language-bash" translate="no">gcloud config set project YOUR_PROJECT_ID
 </code></pre>

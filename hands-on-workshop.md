@@ -117,10 +117,25 @@ Click the button. Cloud Shell opens with the repo cloned and a tutorial panel on
 
 ![Authorize Cloud Shell](images/cloudshell-authorize.png)
 
+Cloud Shell opens with the repo cloned into `~/cloudshell_open/secure-agent-obo`, the terminal already in
+that folder, and a **Deploy Numbat Bank** tutorial panel on the right.
+
+![Cloud Shell after Authorize: repo cloned, terminal open, tutorial panel on the right](images/cloudshell-ready.png)
+
 > **Note:** if you didn't tick **Trust repo**, or `gcloud auth list` shows no active account, sign in from
 > the terminal with `gcloud auth login --update-adc`. `deploy.sh` also offers to do this for you.
 
-3. Point gcloud at your project:
+3. Find your **project ID**. Open the [Google Cloud console](https://console.cloud.google.com/) in a new
+   tab, check the project picker at the top shows the project you want to use, and copy the
+   **Project ID** from the Welcome page. It's the ID (like `my-project-123456`), not the project name or
+   number.
+
+![Google Cloud console Welcome page with the Project ID highlighted](images/console-project-id.png)
+
+   Prefer the terminal? `gcloud projects list` shows every project you can use, with its ID in the first
+   column.
+
+4. Point gcloud at your project, replacing `YOUR_PROJECT_ID` with the ID you copied:
 
 ```bash
 gcloud config set project YOUR_PROJECT_ID
