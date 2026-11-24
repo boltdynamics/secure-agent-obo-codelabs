@@ -222,7 +222,7 @@ When it finishes you will see:
 ```
 
 > **Note:** everything deploys to `us-central1` by default. Want another region? Run `REGION=europe-west1 ./deploy.sh` (Model Armor has its own `MODEL_ARMOR_LOCATION`). If Gemini returns "model not found",
-> redeploy with a model available to your project, for example `MODEL=gemini-3.1-flash-lite ./deploy.sh`.
+> redeploy with a model available to your project, for example `MODEL=gemini-3.5-flash ./deploy.sh`.
 
 The last lines of the smoke test should include:
 

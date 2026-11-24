@@ -245,7 +245,7 @@ it is charged to the project you selected.</p></aside>
   Logins: alice / alice-demo, bob / bob-demo, carol / carol-demo
 </code></pre>
 <aside class="special"><p><strong>Note:</strong> everything deploys to <code>us-central1</code> by default. Want another region? Run <code>REGION=europe-west1 ./deploy.sh</code> (Model Armor has its own <code>MODEL_ARMOR_LOCATION</code>). If Gemini returns "model not found",
-redeploy with a model available to your project, for example <code>MODEL=gemini-3.1-flash-lite ./deploy.sh</code>.</p></aside>
+redeploy with a model available to your project, for example <code>MODEL=gemini-3.5-flash ./deploy.sh</code>.</p></aside>
 <p>The last lines of the smoke test should include:</p>
 <pre><code>    ✓ bank API refuses anonymous callers (HTTP 403)
 </code></pre>
