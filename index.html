@@ -144,14 +144,9 @@ the terminal with <code>gcloud auth login --update-adc</code>. <code>deploy.sh</
 <p><img alt="Google Cloud console Welcome page with the Project ID highlighted" src="images/console-project-id.png" /></p>
 <p>Prefer the terminal? <code>gcloud projects list</code> shows every project you can use, with its ID in the first
    column.</p>
-<ol>
-<li>Point gcloud at your project, replacing <code>YOUR_PROJECT_ID</code> with the ID you copied:</li>
-</ol>
-<pre><code class="language-bash" translate="no">gcloud config set project YOUR_PROJECT_ID
-</code></pre>
-<p>You should see <code>Updated property [core/project].</code>, and the terminal prompt now ends with your project
-   ID in yellow. The code is in the <strong>Explorer</strong> on the left: the <code>app</code> folder holds the four services.</p>
-<p><img alt="Project set in Cloud Shell, with the app folder highlighted in the Explorer" src="images/cloudshell-project-set.png" /></p>
+<p><strong>Keep your project ID handy: you'll need it in the next step.</strong> You don't need to set it in the
+   terminal. Antigravity runs in its own environment and can't see the terminal's gcloud settings, so
+   you'll give it the ID directly in your prompt (or pass it to <code>./deploy.sh</code>).</p>
 <aside class="special"><p><strong>Note:</strong> prefer your normal Cloud Shell (it keeps your files and is already signed in)? Open Cloud
 Shell from the console with the <code>&gt;_</code> icon and run
 <code>git clone https://github.com/boltdynamics/secure-agent-obo.git &amp;&amp; cd secure-agent-obo</code> instead.</p></aside>
@@ -177,7 +172,8 @@ AGENTS.md         instructions for coding agents such as Antigravity
    Google Cloud project) and select your project.</li>
 <li>In the model picker under the chat box, choose <strong>Gemini 3.1 Flash Lite</strong>. It's the lowest-cost Gemini
    model, and running a deploy script doesn't need anything bigger.</li>
-<li>Paste this into the chat box, replacing <code>YOUR_PROJECT_ID</code>, and send it:</li>
+<li>Paste this into the chat box, replacing <code>YOUR_PROJECT_ID</code> with the project ID from the previous step,
+   and send it. Always include the ID: Antigravity can't see the project set in the Cloud Shell terminal.</li>
 </ol>
 <p><img alt="Antigravity panel: paste the prompt, then pick Gemini 3.1 Flash Lite" src="images/antigravity-model.png" /></p>
 <pre><code>Read AGENTS.md, then deploy this app to my Google Cloud project YOUR_PROJECT_ID.

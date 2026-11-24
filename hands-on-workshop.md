@@ -135,16 +135,9 @@ that folder, and a **Deploy Numbat Bank** tutorial panel on the right.
    Prefer the terminal? `gcloud projects list` shows every project you can use, with its ID in the first
    column.
 
-4. Point gcloud at your project, replacing `YOUR_PROJECT_ID` with the ID you copied:
-
-```bash
-gcloud config set project YOUR_PROJECT_ID
-```
-
-   You should see `Updated property [core/project].`, and the terminal prompt now ends with your project
-   ID in yellow. The code is in the **Explorer** on the left: the `app` folder holds the four services.
-
-![Project set in Cloud Shell, with the app folder highlighted in the Explorer](images/cloudshell-project-set.png)
+   **Keep your project ID handy: you'll need it in the next step.** You don't need to set it in the
+   terminal. Antigravity runs in its own environment and can't see the terminal's gcloud settings, so
+   you'll give it the ID directly in your prompt (or pass it to `./deploy.sh`).
 
 > **Note:** prefer your normal Cloud Shell (it keeps your files and is already signed in)? Open Cloud
 > Shell from the console with the `>_` icon and run
@@ -176,7 +169,8 @@ Duration: 0:10:00
    Google Cloud project) and select your project.
 3. In the model picker under the chat box, choose **Gemini 3.1 Flash Lite**. It's the lowest-cost Gemini
    model, and running a deploy script doesn't need anything bigger.
-4. Paste this into the chat box, replacing `YOUR_PROJECT_ID`, and send it:
+4. Paste this into the chat box, replacing `YOUR_PROJECT_ID` with the project ID from the previous step,
+   and send it. Always include the ID: Antigravity can't see the project set in the Cloud Shell terminal.
 
 ![Antigravity panel: paste the prompt, then pick Gemini 3.1 Flash Lite](images/antigravity-model.png)
 

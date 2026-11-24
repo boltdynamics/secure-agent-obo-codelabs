@@ -103,7 +103,7 @@ def main():
         "source": SRC.name, "status": [meta.get("status", "Published").lower()],
         "tags": [t.strip() for t in meta.get("tags", "").split(",") if t.strip()],
         "authors": meta.get("authors", ""), "duration": sum(s["duration"] for s in steps),
-        "updated": dt.datetime.now(dt.UTC).isoformat(timespec="seconds"), "url": meta["id"],
+        "updated": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "url": meta["id"],
     }, indent=2) + "\n")
     print(f"{len(steps)} steps, {sum(s['duration'] for s in steps)} minutes -> index.html")
 
